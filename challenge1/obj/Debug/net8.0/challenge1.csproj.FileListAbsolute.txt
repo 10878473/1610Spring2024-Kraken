@@ -1,0 +1,15 @@
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\bin\Debug\net8.0\challenge1.exe
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\bin\Debug\net8.0\challenge1.deps.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\bin\Debug\net8.0\challenge1.runtimeconfig.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\bin\Debug\net8.0\challenge1.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\bin\Debug\net8.0\challenge1.pdb
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.AssemblyInfoInputs.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.AssemblyInfo.cs
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.csproj.CoreCompileInputs.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.sourcelink.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\refint\challenge1.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.pdb
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\challenge1.genruntimeconfig.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\challenge1\obj\Debug\net8.0\ref\challenge1.dll
