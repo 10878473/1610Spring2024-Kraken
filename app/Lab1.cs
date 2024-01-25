@@ -1,10 +1,6 @@
-using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		int x = 3;//makes the first half 3
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
+int x = 3;//makes the first half 3
         int y = 6;//makes second half 6
         int z = x*y;//Multiplies those numbers
         		string welcome = "Welcome to the Multiplication station - where we multiply 3 by 6!";//makes a welcome statement
@@ -21,5 +17,3 @@ public class Program
 				Console.WriteLine("number of the day is now  =  " + egg);//6.
 		egg+= 5;
 				Console.WriteLine("number of the day is now  =  " + egg);//11.stuff
-	}
-}

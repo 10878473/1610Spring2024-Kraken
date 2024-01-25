@@ -1,0 +1,29 @@
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\bin\Debug\net8.0\app.exe
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\bin\Debug\net8.0\app.deps.json
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\bin\Debug\net8.0\app.runtimeconfig.json
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\bin\Debug\net8.0\app.dll
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\bin\Debug\net8.0\app.pdb
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\app.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\app.AssemblyInfoInputs.cache
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\app.AssemblyInfo.cs
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\app.csproj.CoreCompileInputs.cache
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\app.dll
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\refint\app.dll
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\app.pdb
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\app.genruntimeconfig.cache
+C:\Users\Laptop Checkout\Crystal Crusader - 3D\app\obj\Debug\net8.0\ref\app.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\bin\Debug\net8.0\app.exe
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\bin\Debug\net8.0\app.deps.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\bin\Debug\net8.0\app.runtimeconfig.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\bin\Debug\net8.0\app.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\bin\Debug\net8.0\app.pdb
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.AssemblyInfoInputs.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.AssemblyInfo.cs
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.csproj.CoreCompileInputs.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.sourcelink.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\refint\app.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.pdb
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\app.genruntimeconfig.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\app\obj\Debug\net8.0\ref\app.dll
