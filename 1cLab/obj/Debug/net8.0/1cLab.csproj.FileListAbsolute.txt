@@ -1,0 +1,15 @@
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.AssemblyInfoInputs.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.AssemblyInfo.cs
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.csproj.CoreCompileInputs.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.sourcelink.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\bin\Debug\net8.0\1cLab.exe
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\bin\Debug\net8.0\1cLab.deps.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\bin\Debug\net8.0\1cLab.runtimeconfig.json
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\bin\Debug\net8.0\1cLab.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\bin\Debug\net8.0\1cLab.pdb
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\refint\1cLab.dll
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.pdb
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\1cLab.genruntimeconfig.cache
+C:\Users\Laptop Checkout\Documents\GIT REPOS\1610Spring2024-Kraken\1cLab\obj\Debug\net8.0\ref\1cLab.dll

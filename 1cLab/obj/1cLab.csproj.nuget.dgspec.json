@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\Lab1b\\lab1b.csproj": {}
+    "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\1cLab\\1cLab.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\Lab1b\\lab1b.csproj": {
+    "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\1cLab\\1cLab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\Lab1b\\lab1b.csproj",
-        "projectName": "lab1b",
-        "projectPath": "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\Lab1b\\lab1b.csproj",
+        "projectUniqueName": "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\1cLab\\1cLab.csproj",
+        "projectName": "1cLab",
+        "projectPath": "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\1cLab\\1cLab.csproj",
         "packagesPath": "C:\\Users\\Laptop Checkout\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\Lab1b\\obj\\",
+        "outputPath": "C:\\Users\\Laptop Checkout\\Documents\\GIT REPOS\\1610Spring2024-Kraken\\1cLab\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Laptop Checkout\\AppData\\Roaming\\NuGet\\NuGet.Config"
