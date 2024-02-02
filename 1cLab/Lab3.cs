@@ -8,13 +8,13 @@ Console.WriteLine("Beginning:");
 for (int i = 1; i < (psize+1); i++)
 {
     //This will run the amount of tmes that is said for the pyramid - ex 5 times will run.
-    Console.WriteLine("This is row "+i);
-    int ns_on_pyramid = 0; 
+    //Console.WriteLine("This is row "+i); Testing line
+    string nummys=("");//blank string to be filled with pyramid contents
     for (int b = 1; b < (i+1); b++)
     {
-        ns_on_pyramid++;
+        nummys += (i.ToString());//adds the number to the row - ex adds 2; 2 times
     }
-    Console.WriteLine(i*ns_on_pyramid);
+    Console.WriteLine(nummys);
 }
 
 
