@@ -24,7 +24,14 @@ while (guess != randy)
 
 } 
 Console.WriteLine("The number was in fact " + randy + "! You got it in only " + Convert.ToInt32(tries) +" Tries!");//Tells you how many times you tried
+Console.WriteLine("What is your Three Favorite Foods?");
+string[] foods = {Console.ReadLine(),Console.ReadLine(),Console.ReadLine()};//takes each food item on a new line, doesn't check for null
+foreach (var item in foods)
+{
 
+  Console.WriteLine("I also like "+item);
+}//Prints out each item with a message.
+Console.WriteLine("FIN.");
 /*
 3. Design and implement a C# program that incorporates the following challenges:
 
