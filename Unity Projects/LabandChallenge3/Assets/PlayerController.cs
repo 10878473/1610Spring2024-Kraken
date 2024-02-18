@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuyController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     //define variables here
     public float Speed = 5f;
-    public float jumpforce = 5f;
-    float gravity = 9f;
+    public float jumpforce = 0.5f;
+    float gravity = -9.8f;
     private CharacterController controller;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -31,21 +31,29 @@ public class GuyController : MonoBehaviour
         //gets a vector direction of what direction player wants to move in 
         movevector.x = Input.GetAxis("Horizontal");
         movevector.z = Input.GetAxis("Vertical");
-        movevector.y -= gravity * Time.deltaTime;// simulates gravity right now instead of checking for input
+        movevector.y += gravity * Time.deltaTime;// simulates gravity right now 
 
         //Jumping
+        if (controller.isGrounded && movevector.y < 0){
+            movevector.y = 0f;
+        }
         if (Input.GetAxis("Jump")>0f && controller.isGrounded)
         {
             isJumping = true;
+        }else
+        {
+            isJumping = false;   
         }
         if (isJumping)
         {
-            movevector.y = jumpforce;
+            movevector.y += Mathf.Sqrt(jumpforce * -0.1f * gravity);
         }
         Debug.Log(movevector.y);
-        
+        Debug.Log("Jumping ="+isJumping);
+        Debug.Log("Grounded? =  " + controller.isGrounded);
         if(movevector.magnitude >= 0.1f){
             controller.Move(Speed*movevector*Time.deltaTime);
+            //Followed a youtube tutorial to get some smooth rotation
             float targetAngle = Mathf.Atan2(movevector.x, movevector.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);//rotates player smoothly using math stuff
