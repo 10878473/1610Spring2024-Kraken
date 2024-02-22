@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(controller.isGrounded);
         //Ground movement
         //gets a vector direction of what direction player wants to move in 
         movevector.x = Input.GetAxis("Horizontal");
@@ -39,6 +40,11 @@ public class PlayerController : MonoBehaviour
         movevector.y += gravity * Time.deltaTime;// simulates gravity right now 
 
         //Jumping
+        
+
+
+
+        
         if (controller.isGrounded && movevector.y < 0){
             movevector.y = 0f;
         }
@@ -49,7 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;   
         }
-        if (isJumping)
+        if (isJumping)//seperates the check from the action
         {
             movevector.y += Mathf.Sqrt(jumpforce * -0.1f * gravity);
         }
@@ -96,10 +102,12 @@ public class PlayerController : MonoBehaviour
         //Sprinting code
         if (Input.GetAxis("Sprint") > 0f && !isCrouching)//simple sprint if pushing button and not crouching
         {
-            Speed = defaultspeed *2;
+            Speed = defaultspeed *2;//simply doubles the speed based off of default
         } else
         {
             Speed = defaultspeed;
         }
+
+        //Optional - Double jump? Wall run/jump
     }
 }
