@@ -59,9 +59,12 @@ public class PlayerController : MonoBehaviour
         {
             movevector.y += Mathf.Sqrt(jumpforce * -0.1f * gravity);
         }
-        Debug.Log(movevector.y);
-        Debug.Log("Jumping ="+isJumping);
-        Debug.Log("Grounded? =  " + controller.isGrounded);
+        //Debug.Log(movevector.y);
+        //Debug.Log("Jumping ="+isJumping);
+        //Debug.Log("Grounded? =  " + controller.isGrounded);
+
+
+        // Actual movement handled here
         if(movevector.magnitude >= 0.1f){
             controller.Move(Speed*movevector*Time.deltaTime);
             
