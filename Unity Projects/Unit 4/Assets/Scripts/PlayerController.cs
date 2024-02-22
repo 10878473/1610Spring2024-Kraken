@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * velocityF);
         
         //Rotation
-        if(velocityF > 0){
+        if(velocityF != 0){
             transform.Rotate(0f,Input.GetAxis("Horizontal")*MathF.Abs(velocityF*0.1f),0f,Space.Self);
 
         }
