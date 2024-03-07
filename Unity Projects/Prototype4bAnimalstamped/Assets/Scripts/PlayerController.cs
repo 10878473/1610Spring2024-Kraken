@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject projectilePrefab;
     public float h_input;
     public float v_input;
     public float boundingbox = 25;
+    public float Speed = 0.75f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class PlayerController : MonoBehaviour
         h_input = Input.GetAxis("Horizontal");
         v_input = Input.GetAxis("Vertical");
 
-        transform.Translate(new Vector3(h_input, 0f, v_input));
+        transform.Translate(new Vector3(h_input*Speed, 0f, v_input * Speed));
         // IF the player tries to go out of bounds, put them back in the bounds
         if (transform.position.x > boundingbox)
         {//for right edge
@@ -36,6 +38,10 @@ public class PlayerController : MonoBehaviour
         if (transform.position.z < -boundingbox)
         {//bottom edge
             transform.position = new Vector3(transform.position.x, transform.position.y, -boundingbox);
+        }
+        //Fire pizza projectile script
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
     }
 }
