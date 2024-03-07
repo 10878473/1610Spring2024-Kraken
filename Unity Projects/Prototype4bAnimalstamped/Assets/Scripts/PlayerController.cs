@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
         }
         //Fire pizza projectile script
         if(Input.GetKeyDown(KeyCode.Space)){
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            Vector3 newPos = new Vector3(transform.position.x, 1, transform.position.z);
+            Instantiate(projectilePrefab, newPos, projectilePrefab.transform.rotation);
         }
     }
 }

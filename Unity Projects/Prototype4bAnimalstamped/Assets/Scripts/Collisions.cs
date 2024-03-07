@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class Collisions : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject player;
     void Start()
     {
         
@@ -14,6 +14,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, 80f, player.transform.position.z);
+        
     }
+    private void OnTriggerEnter(Collider other){
+        Destroy(gameObject);
+        Destroy(other.gameObject);
+    }
+    
 }
