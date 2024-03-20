@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+
+    //This will be UI controller maybe
+    //using UnityEngine.UI;
     // Start is called before the first frame update
     void Start()
     {
