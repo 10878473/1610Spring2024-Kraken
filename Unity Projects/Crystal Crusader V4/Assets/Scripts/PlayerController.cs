@@ -17,8 +17,9 @@ public class PlayerController : MonoBehaviour
     public Vector3 worldPosition;//position mouse is aiming at in world
 
     private Vector3 moveVector;
-    private float speed = 25;
-    private Vector2 bounds = new Vector2(40, 35);
+    private float speed = 50;
+    private Vector2 bounds = new Vector2(40, 25);
+    private float turnspeed = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,19 +34,36 @@ public class PlayerController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);//Shoots a beam from camera to mouse point
         if (Physics.Raycast(ray, out RaycastHit hitData)){
             worldPosition = hitData.point;//world position is where we want to aim the player at.
-            var direction = worldPosition - transform.position;//takes direction
-            transform.forward = direction; // makes player aim at point. TODO- Change it so it moves smoothly.
+            var direction = (worldPosition - transform.position).normalized;//takes  target direction
+            var rotGoal = Quaternion.LookRotation(direction);// makes a quaternion for the direction
+            var lerped = Quaternion.Slerp(transform.rotation, rotGoal, turnspeed); // Smoothly Lerps towards it.
+            transform.rotation = lerped; // makes player aim at point. TODO- Change it so it moves smoothly.
             //Debug.Log("Direction_"+direction+"<Rotating by");
         }else{Debug.Log(screenPosition+"No position?");}//This shouln't run but just in case for troubleshooting
         
-        //gets a vector direction of what direction player wants to move in 
-        moveVector.x = Input.GetAxis("Horizontal");
+        // this will change based on game state later 
+        moveVector.x = Input.GetAxis("Horizontal");//gets a vector direction of what direction player wants to move in 
         moveVector.y = Input.GetAxis("Vertical");
-
-        if(moveVector.magnitude >= 0.1f){
-            transform.position += moveVector*speed*Time.deltaTime;
-
+        transform.position += moveVector * speed * Time.deltaTime;
+        // Keeps character in bounding box -----
+        if (transform.position.x > bounds.x)
+        {//for right edge
+            transform.position = new Vector3(bounds.x, transform.position.y, transform.position.z);
         }
+        if (transform.position.x < -bounds.x)
+        {//Left edge
+            transform.position = new Vector3(-bounds.x, transform.position.y, transform.position.z);
+        }
+        if (transform.position.y > bounds.y)
+        {//top edge
+            transform.position = new Vector3(transform.position.x, bounds.y, transform.position.z);
+        }
+        if (transform.position.y < -bounds.y)
+        {//bottom edge
+            transform.position = new Vector3(transform.position.x, -bounds.y, transform.position.z);
+        }
+
         
+
     }
 }
