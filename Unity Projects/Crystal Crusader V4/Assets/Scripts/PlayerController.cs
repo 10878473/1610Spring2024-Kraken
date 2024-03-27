@@ -20,10 +20,18 @@ public class PlayerController : MonoBehaviour
     private float speed = 50;
     private Vector2 bounds = new Vector2(40, 25);
     private float turnspeed = 0.1f;
+    private bool canFire = true;
+    public GameObject bulletPrefab;
+    public GameObject bulletPrefab2;
+    private bool basicBulletType;
+
+    private GameObject playerTip;
+
+    public float currentCooldown = 0.125f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerTip = GameObject.Find("playerTip");
     }
 
     // Update is called once per frame
@@ -39,7 +47,8 @@ public class PlayerController : MonoBehaviour
             var lerped = Quaternion.Slerp(transform.rotation, rotGoal, turnspeed); // Smoothly Lerps towards it.
             transform.rotation = lerped; // makes player aim at point. TODO- Change it so it moves smoothly.
             //Debug.Log("Direction_"+direction+"<Rotating by");
-        }else{Debug.Log(screenPosition+"No position?");}//This shouln't run but just in case for troubleshooting
+        }
+        //else{Debug.Log(screenPosition+"No position?");}//This runs when it doesn't aim at anything. Not needed right now as it keeps its current angle.
         
         // this will change based on game state later 
         moveVector.x = Input.GetAxis("Horizontal");//gets a vector direction of what direction player wants to move in 
@@ -63,7 +72,23 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, -bounds.y, transform.position.z);
         }
 
+        //Fire with mouse1/fire
+        if(Input.GetAxis("Fire1") > 0 && canFire){
+            //Debug.Log("PEW!");//Creates bullet, Aims in correct direction, and waits until it can shoot agin. Offset of 14 will need to change if size of player changes.
+            if (basicBulletType){Instantiate(bulletPrefab, playerTip.transform.position, transform.rotation);
+            basicBulletType = false;}
+            else {Instantiate(bulletPrefab2, playerTip.transform.position, transform.rotation);
+            basicBulletType = true;}//Alternates between 2 bullet visuals for fun.
+
+            canFire = false;
+            StartCoroutine(ShootCooldown());
+
+        }        
         
+        IEnumerator ShootCooldown(){//Bullet cooldown will vary based on type of powerup that you have
+        yield return new WaitForSeconds(currentCooldown);
+        canFire = true;
+    }
 
     }
 }

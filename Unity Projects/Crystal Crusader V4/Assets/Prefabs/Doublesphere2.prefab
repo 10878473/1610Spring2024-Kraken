@@ -51,14 +51,14 @@ PrefabInstance:
     - target: {fileID: -323403981712951232, guid: 29535e421686c104581f315d2f291df9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 97ea2f205b0772146a893c95d75a70b3, type: 2}
+      objectReference: {fileID: 2100000, guid: 11cc4db9e9376594fb0807d1b910cd08, type: 2}
     - target: {fileID: -264430861247414160, guid: 29535e421686c104581f315d2f291df9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c7361246d17f5314685fe03540ac9e62, type: 2}
+      objectReference: {fileID: 2100000, guid: d6ffca2e57e126449a9e186bad3c32e0, type: 2}
     - target: {fileID: 919132149155446097, guid: 29535e421686c104581f315d2f291df9, type: 3}
       propertyPath: m_Name
-      value: Doublesphere
+      value: Doublesphere2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 29535e421686c104581f315d2f291df9, type: 3}
       propertyPath: m_TagString
@@ -73,7 +73,7 @@ PrefabInstance:
       addedObject: {fileID: -803216191132735882}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 29535e421686c104581f315d2f291df9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4531372969749898247}
+      addedObject: {fileID: 2626867706242200624}
   m_SourcePrefab: {fileID: 100100000, guid: 29535e421686c104581f315d2f291df9, type: 3}
 --- !u!1 &3723980039839638327 stripped
 GameObject:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a67f25d275a48f4d86eba782df9e59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &4531372969749898247
+--- !u!135 &2626867706242200624
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
