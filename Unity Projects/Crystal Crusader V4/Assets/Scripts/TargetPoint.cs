@@ -21,7 +21,7 @@ public class TargetPoint : MonoBehaviour
             worldPosition = hitData.point;
         }
         transform.position = worldPosition;
-    
+        
     }
 }
 

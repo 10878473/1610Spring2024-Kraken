@@ -14,7 +14,7 @@ public class BasicEnemy : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("PlayerController");
-        speed = Random.Range(1,5);
+        speed = Random.Range(5,20);
         Debug.Log(gameObject.name + " speed is " + speed);
     }
 
