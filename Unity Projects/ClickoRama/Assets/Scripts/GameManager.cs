@@ -10,18 +10,16 @@ public class GameManager : MonoBehaviour
 
     // similar to using public GameObject[]; not sure the pros and cons of it though.
     public List<GameObject> targets;
-    private float spawnRate = 1.0f;
+    public float spawnRate = 1.0f;
     private int score;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     public bool isGameActive;
     public Button restartButton;
-
+    public GameObject titleScreen;
     void Start()
     {
-        isGameActive = true;
-        StartCoroutine(SpawnTarget());
-        UpdateScore(0);
+        
     }
 
     // Update is called once per frame
@@ -50,5 +48,14 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+    public void StartGame(int difficulty){
+        spawnRate /= difficulty;
+        isGameActive = true;
+        score = 0;
+        StartCoroutine(SpawnTarget());
+        UpdateScore(0);
+        titleScreen.gameObject.SetActive(false);
     }
 }
