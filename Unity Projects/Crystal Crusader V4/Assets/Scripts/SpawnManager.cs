@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            Instantiate(meteors[Random.Range(0,meteors.Length)], pointInZone(),transform.rotation);
+            Instantiate(meteors[Random.Range(0,meteors.Length)], pointInZone(),Random.rotation);
         }
 
     }
@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
         
     }
     private Vector3 pointInZone(){
-        Vector3 point = new Vector3(Random.insideUnitCircle.x * 150, Random.insideUnitCircle.y * 150, Random.Range(400,500));
+        Vector3 point = new Vector3(Random.insideUnitCircle.x * 40, Random.insideUnitCircle.y * 25, Random.Range(400,500));
         return point;
     }
     //Spawn area X/Y -150 to 150 Z 400-500

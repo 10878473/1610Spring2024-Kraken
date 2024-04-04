@@ -22,7 +22,7 @@ public class BasicEnemy : MonoBehaviour
     void Update()
     {
         //rotate towards player? sometimes
-        transform.Translate(Vector3.back* speed * Time.deltaTime);//Move towards player. Randomized based on instance?
+        transform.Translate(Vector3.back* speed * Time.deltaTime, Space.World);//Move towards player. Randomized based on instance?
         if (hp <= 0)
         {
             Destroy(gameObject);
