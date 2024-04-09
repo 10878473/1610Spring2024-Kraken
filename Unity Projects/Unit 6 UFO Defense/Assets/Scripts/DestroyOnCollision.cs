@@ -16,11 +16,11 @@ public class DestroyOnCollision : MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider other){
-        Debug.Log("Blam! hit " + other.gameObject.CompareTag("UFO"));
+        //Debug.Log("Blam! hit " + other.gameObject.CompareTag("UFO"));
 
         if (other.gameObject.CompareTag("UFO"))
         {
-            Debug.Log("Why isnt this being destroyed!");
+            //Debug.Log("Why isnt this being destroyed!");
             Destroy(gameObject);
             Destroy(other.gameObject);
         }

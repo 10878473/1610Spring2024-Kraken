@@ -7,18 +7,23 @@ public class PlayerController : MonoBehaviour
     public float bounds = 20f;
     public float speed = 7f;
     public GameObject laser;
-    public int spread;
+    private float spread;
     private bool canFire;
     private float spreadstep;
+    private int spreadmax;
+    private float firingArc = 120;
     // Start is called before the first frame update
     void Start()
     {
+        spreadmax = 3;
         canFire = true; 
+        //sets spread of gun at start and can fire
     }
 
     // Update is called once per frame
     void Update()
     {
+        //moves within bounds
         if(Input.GetAxis("Horizontal")>0){
             if(transform.position.x < bounds){
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
@@ -29,20 +34,22 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(Vector3.left * speed * Time.deltaTime);
             }
         }
+        //shoots with a cooldown
         if(Input.GetAxis("Fire1")>0){
             if (canFire == true){
-                spread = Random.Range(1, 10);
+                spread = Random.Range(1, spreadmax);
                 //Debug.Log("Pew!");
+                //shoots a spread of bullets.
                 if (spread ==1){
                     Instantiate(laser,transform.position + Vector3.forward, laser.transform.rotation);
                 }
                 else{
-                    spreadstep = 90/spread;
+                    spreadstep = firingArc/spread;//splits the spread of bullets evenly between the firing arc(I have changed the arc a few times and it could change in game later)
                     for (int i = 0; i < spread; i++)
                     {
-                    Quaternion currentAngle = Quaternion.Euler(Vector3.up * spreadstep*i);
-                    Debug.Log(currentAngle.y -45);
-                    Instantiate(laser,transform.position + Vector3.forward*3, Quaternion.Euler(Vector3.up * spreadstep*i -new Vector3(0,45,0)));
+                    Quaternion currentAngle = Quaternion.Euler(Vector3.up * spreadstep*i -new Vector3(0,45,0));//this math took a while to fine tune.
+                    //Debug.Log(currentAngle.y);
+                    Instantiate(laser,transform.position + Vector3.forward*1.5f, currentAngle);
                     //StartCoroutine("SpreadCooldown");
                     }
                 }
@@ -53,12 +60,23 @@ public class PlayerController : MonoBehaviour
         }
     }
     IEnumerator Cooldown(){
-        yield return new WaitForSeconds(1.5f);
-        canFire = true;
-
+        yield return new WaitForSeconds(.5f);
+        canFire = true;//simple firing cooldown
     }
-    IEnumerator SpreadCooldown(){
-        yield return new WaitForSeconds(.25f);
 
+    //couldnt figure out WaitUntil type code
+    //IEnumerator SpreadCooldown(){
+    //    yield return new WaitForSeconds(.25f);
+
+    //}
+    private void OnTriggerEnter(Collider other){
+        
+        //Pickup Powerup to increase spread
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+            spreadmax++;
+            Debug.Log("Current Power: " + spreadmax);
+        }
     }
 }
