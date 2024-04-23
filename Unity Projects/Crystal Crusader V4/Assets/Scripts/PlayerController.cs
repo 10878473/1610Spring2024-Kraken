@@ -12,14 +12,14 @@ public class PlayerController : MonoBehaviour
     //idea one - It works more like a gallery shooter game until the enemies get close enough, then it quickly turns to an asteroids type game. with top down camera.
     //then turns into FPS or roating around a circle style controls in boss fight stage 
     // 
-
-    public Vector3 screenPosition;//Mouse position on screen
-    public Vector3 worldPosition;//position mouse is aiming at in world
+    // UNUSED AIMING SCRIPT 
+    //public Vector3 screenPosition;//Mouse position on screen
+    //public Vector3 worldPosition;//position mouse is aiming at in world
+    //private float turnspeed = 0.1f; 
 
     private Vector3 moveVector;
     private float speed = 50;
     private Vector2 bounds = new Vector2(40, 25);
-    private float turnspeed = 0.1f;
     private bool canFire = true;
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Aiming Rotation code -------------------
+        /* //Aiming Rotation code -------------------
         screenPosition = Input.mousePosition; //gets screen position of mouse
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);//Shoots a beam from camera to mouse point
         if (Physics.Raycast(ray, out RaycastHit hitData)){
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             var lerped = Quaternion.Slerp(transform.rotation, rotGoal, turnspeed); // Smoothly Lerps towards it.
             transform.rotation = lerped; // makes player aim at point. TODO- Change it so it moves smoothly.
             //Debug.Log("Direction_"+direction+"<Rotating by");
-        }
+        } */
         //else{Debug.Log(screenPosition+"No position?");}//This runs when it doesn't aim at anything. Not needed right now as it keeps its current angle.
         
         // this will change based on game state later 
