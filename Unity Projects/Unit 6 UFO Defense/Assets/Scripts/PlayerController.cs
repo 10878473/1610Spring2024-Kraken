@@ -13,9 +13,11 @@ public class PlayerController : MonoBehaviour
     private int spreadmax;
     private float firingArc = 120;
     public GameManager gameManager;
+    private AudioSource pew;
     // Start is called before the first frame update
     void Start()
     {
+        pew = gameObject.GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         spreadmax = 3;
         canFire = true; 
@@ -39,8 +41,11 @@ public class PlayerController : MonoBehaviour
         //shoots with a cooldown
         if(Input.GetAxis("Fire1")>0){
             if (canFire == true && !gameManager.isgameOver){
+
                 spread = Random.Range(1, spreadmax);
-                //Debug.Log("Pew!");
+                Debug.Log("Pew!");
+                pew.Play();
+                
                 //shoots a spread of bullets.
                 if (spread ==1){
                     Instantiate(laser,transform.position + Vector3.forward, laser.transform.rotation);

@@ -6,11 +6,14 @@ public class GameManager : MonoBehaviour
 {
     private GameObject gameoverText;
     private GameObject quitbutton;
-
+    public AudioSource badBang;
     public bool isgameOver;
+    public music musicplayer;
     // Start is called before the first frame update
     void Start()
     {        
+        musicplayer = GameObject.Find("MusicManager").GetComponent<music>();
+        badBang = gameObject.GetComponent<AudioSource>();
         gameoverText = GameObject.Find("GameOverText");
         quitbutton = GameObject.Find("Quit");
 
@@ -28,6 +31,8 @@ public class GameManager : MonoBehaviour
         
     }
     public void EndGame(){
+        badBang.Play();
+        musicplayer.EndMusic();
         isgameOver = true;
         gameoverText.SetActive(true);
         quitbutton.SetActive(true);

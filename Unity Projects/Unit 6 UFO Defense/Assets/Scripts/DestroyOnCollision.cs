@@ -5,10 +5,15 @@ using UnityEngine;
 public class DestroyOnCollision : MonoBehaviour
 {
     public ScoreManager scoreManager;
+
     // Start is called before the first frame update
     void Start()
-    {
+    {        
+
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+    }
+    void Awake(){   
+             
     }
 
     // Update is called once per frame
@@ -20,9 +25,10 @@ public class DestroyOnCollision : MonoBehaviour
         //Debug.Log("Blam! hit " + other.gameObject.CompareTag("UFO"));
 
         if (other.gameObject.CompareTag("UFO"))
-        {
+        {        
+            Debug.Log("BANG");
             scoreManager.increaseScore(1);
-            //Debug.Log("Why isnt this being destroyed!");
+                
             Destroy(gameObject);
             Destroy(other.gameObject);
 
