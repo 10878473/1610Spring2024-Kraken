@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DestroyOnCollision : MonoBehaviour
 {
+    public ScoreManager scoreManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -20,9 +21,11 @@ public class DestroyOnCollision : MonoBehaviour
 
         if (other.gameObject.CompareTag("UFO"))
         {
+            scoreManager.increaseScore(1);
             //Debug.Log("Why isnt this being destroyed!");
             Destroy(gameObject);
             Destroy(other.gameObject);
+
         }
     }
 }

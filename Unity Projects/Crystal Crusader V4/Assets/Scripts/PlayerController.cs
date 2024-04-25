@@ -13,31 +13,37 @@ public class PlayerController : MonoBehaviour
     //then turns into FPS or roating around a circle style controls in boss fight stage 
     // 
     // UNUSED AIMING SCRIPT 
-    //public Vector3 screenPosition;//Mouse position on screen
-    //public Vector3 worldPosition;//position mouse is aiming at in world
-    //private float turnspeed = 0.1f; 
+    public Vector3 screenPosition;//Mouse position on screen
+    public Vector3 worldPosition;//position mouse is aiming at in world
+    private float turnspeed = 0.1f; 
 
+    //types of powerups - 1 - Silver Slicer, 2- Burst, 3-Super rapid fire, 4- Laser blast, 5- grey rain
+    public string firingType;
     private Vector3 moveVector;
     private float speed = 50;
     private Vector2 bounds = new Vector2(40, 25);
     private bool canFire = true;
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2;
-    private bool basicBulletType;
+    private bool bulletAlternating;
 
     private GameObject playerTip;
 
-    public float currentCooldown = 0.125f;
+    public float currentCooldown;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         playerTip = GameObject.Find("playerTip");
+        firingType = "Rapid";
+        currentCooldown = 0.125f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /* //Aiming Rotation code -------------------
+         //Aiming Rotation code -------------------
         screenPosition = Input.mousePosition; //gets screen position of mouse
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);//Shoots a beam from camera to mouse point
         if (Physics.Raycast(ray, out RaycastHit hitData)){
@@ -47,7 +53,7 @@ public class PlayerController : MonoBehaviour
             var lerped = Quaternion.Slerp(transform.rotation, rotGoal, turnspeed); // Smoothly Lerps towards it.
             transform.rotation = lerped; // makes player aim at point. TODO- Change it so it moves smoothly.
             //Debug.Log("Direction_"+direction+"<Rotating by");
-        } */
+        } 
         //else{Debug.Log(screenPosition+"No position?");}//This runs when it doesn't aim at anything. Not needed right now as it keeps its current angle.
         
         // this will change based on game state later 
@@ -72,19 +78,57 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, -bounds.y, transform.position.z);
         }
 
-        //Fire with mouse1/fire
-        if(Input.GetAxis("Fire1") > 0 && canFire){
-            //Debug.Log("PEW!");//Creates bullet, Aims in correct direction, and waits until it can shoot agin. Offset of 14 will need to change if size of player changes.
-            if (basicBulletType){Instantiate(bulletPrefab, playerTip.transform.position, transform.rotation);
-            basicBulletType = false;}
-            else {Instantiate(bulletPrefab2, playerTip.transform.position, transform.rotation);
-            basicBulletType = true;}//Alternates between 2 bullet visuals for fun.
 
-            canFire = false;
-            StartCoroutine(ShootCooldown());
-
-        }        
         
+        //Fire with mouse1/fire
+        if(Input.GetAxis("Fire1") > 0 && canFire){        
+            if (firingType == "Rapid"){// || means or
+                //Debug.Log("PEW!");//Creates bullet, Aims in correct direction, and waits until it can shoot agin. Offset of 14 will need to change if size of player changes.
+                if (bulletAlternating){Instantiate(bulletPrefab, playerTip.transform.position,  transform.rotation);
+                bulletAlternating = false;}
+                else {Instantiate(bulletPrefab2, playerTip.transform.position, transform.rotation);
+                bulletAlternating = true;}//Alternates between 2 bullet visuals for fun.
+
+                canFire = false;
+                StartCoroutine(ShootCooldown());
+            }
+            if (firingType == "Burst"){// || means or
+                //Debug.Log("PEW!");//Creates bullet, Aims in correct direction, and waits until it can shoot agin. Offset of 14 will need to change if size of player changes.
+                for (int i = 0; i < 8; i++)
+                {
+                    if (bulletAlternating){Instantiate(bulletPrefab, playerTip.transform.position,  transform.rotation);
+                    bulletAlternating = false;}
+                    else {Instantiate(bulletPrefab2, playerTip.transform.position, transform.rotation);
+                    bulletAlternating = true;}//Alternates between 2 bullet visuals for fun.
+
+                }
+                
+                canFire = false;
+                StartCoroutine(ShootCooldown());
+            }
+            
+            if (firingType == "Super-Rapid"){
+                //Debug.Log("PEW!");//Creates bullet, Aims in correct direction, and waits until it can shoot agin. Offset of 14 will need to change if size of player changes.
+                Instantiate(bulletPrefab2, playerTip.transform.position, transform.rotation);
+                canFire = false;
+                StartCoroutine(ShootCooldown());
+            }
+        }        
+        if(Input.GetKey("1")){
+            firingType = "Rapid";
+            currentCooldown = 0.125f;
+            Debug.Log("Firing type = " + firingType);
+        }
+        if(Input.GetKey("2")){
+            firingType = "Burst";
+            currentCooldown = 0.3f;
+            Debug.Log("Firing type = " + firingType);
+        }
+        if(Input.GetKey("3")){
+            firingType = "Super-Rapid";
+            currentCooldown = 0.01f;
+            Debug.Log("Firing type = " + firingType);
+        }
         IEnumerator ShootCooldown(){//Bullet cooldown will vary based on type of powerup that you have
         yield return new WaitForSeconds(currentCooldown);
         canFire = true;

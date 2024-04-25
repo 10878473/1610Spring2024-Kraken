@@ -6,10 +6,13 @@ using UnityEngine.UIElements;
 public class DestroyOutOfBounds : MonoBehaviour
 {
     // Start is called before the first frame update
+    public ScoreManager scoreManager;
     private int bound = 50;
+    
     void Start()
     {
-        
+       
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -24,8 +27,14 @@ public class DestroyOutOfBounds : MonoBehaviour
         if(transform.position.z > bound){
             Destroy(gameObject);
         }
-        if(transform.position.z < -bound){
+        if(transform.position.z < -2){
             Destroy(gameObject);
+            if (gameObject.CompareTag("UFO"))
+            {
+                scoreManager.decreaseScore(5);
+
+
+            }
             
         }
     }

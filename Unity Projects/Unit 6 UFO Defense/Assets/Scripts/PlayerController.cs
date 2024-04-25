@@ -12,9 +12,11 @@ public class PlayerController : MonoBehaviour
     private float spreadstep;
     private int spreadmax;
     private float firingArc = 120;
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         spreadmax = 3;
         canFire = true; 
         //sets spread of gun at start and can fire
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         }
         //shoots with a cooldown
         if(Input.GetAxis("Fire1")>0){
-            if (canFire == true){
+            if (canFire == true && !gameManager.isgameOver){
                 spread = Random.Range(1, spreadmax);
                 //Debug.Log("Pew!");
                 //shoots a spread of bullets.
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             spreadmax++;
-            Debug.Log("Current Power: " + spreadmax);
+            //Debug.Log("Current Power: " + spreadmax);
         }
     }
 }
