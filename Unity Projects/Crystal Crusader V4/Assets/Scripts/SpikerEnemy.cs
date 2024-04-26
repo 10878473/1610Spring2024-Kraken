@@ -29,16 +29,20 @@ public class SpikerEnemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            
             Destroy(gameObject);
             //TODO - Explosion?
         }
-        //rotate towards player? sometimes
+        
         if(transform.position.z > targetDist)
         {
             transform.Translate(Vector3.back* speed * Time.deltaTime, Space.World);//Move towards player. Randomized based on instance?
         } else
         {
-            transform.Rotate(player.transform.position - transform.position);
+
+            //Rotate towards player
+            
+            
             if (canFire)
             {
                 canFire = false;

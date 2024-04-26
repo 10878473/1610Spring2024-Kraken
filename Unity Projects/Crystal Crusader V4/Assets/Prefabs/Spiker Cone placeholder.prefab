@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8989012300067962820}
   - component: {fileID: 8626132464248526591}
   - component: {fileID: 7160501804780691716}
+  - component: {fileID: -4111530424371087393}
   m_Layer: 0
   m_Name: Spiker Cone placeholder
   m_TagString: Untagged
@@ -107,3 +108,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &-4111530424371087393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8909779420479414549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a67f25d275a48f4d86eba782df9e59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
