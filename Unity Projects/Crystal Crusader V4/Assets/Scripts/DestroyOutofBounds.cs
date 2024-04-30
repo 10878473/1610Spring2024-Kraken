@@ -14,7 +14,7 @@ public class DestroyOutofBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z > 500 ||transform.position.z < -10 || Math.Abs(transform.position.y) > 150 ||Math.Abs(transform.position.x)> 200){
+        if(transform.position.z > 500 ||transform.position.z < -30 || Math.Abs(transform.position.y) > 150 ||Math.Abs(transform.position.x)> 200){
             Destroy(gameObject);
         }
     }

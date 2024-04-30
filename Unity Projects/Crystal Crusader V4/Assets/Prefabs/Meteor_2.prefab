@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 100918220531942906}
   - component: {fileID: 4254334943349296106}
   - component: {fileID: 3459518492291354722}
+  - component: {fileID: 2706835415801831391}
+  - component: {fileID: -4630596413798643690}
   m_Layer: 0
   m_Name: Meteor_2
-  m_TagString: Obstacle
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,3 +149,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dbf61c2ad8ea44e988f1bd99438108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 5
+--- !u!114 &2706835415801831391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371216436905108400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4790e7ead2ac9c140b5881b7746282e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4630596413798643690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371216436905108400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e18dc3c10fd784f9e93e61471df76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreManager: {fileID: 0}
+  explosion: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}

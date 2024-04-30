@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private float speed = 75f;
     // Start is called before the first frame update
-    private float bulletSpread = 5f;
+    public float bulletSpread = 5f;
     private Vector3 bulletSpreadVector;
     void Start()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-// using 
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,10 +31,17 @@ public class PlayerController : MonoBehaviour
 
     public float currentCooldown;
 
-    
+    public int hp;
+    public TextMeshProUGUI hpText;
+    public ParticleSystem explosionParticle;
+    private bool aimWithMouse = true;
+    public ScoreManager ScoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        ScoreManager = GameObject.Find("ManagersGoHere").GetComponent<ScoreManager>();
+        hp = 50;
         playerTip = GameObject.Find("playerTip");
         firingType = "Rapid";
         currentCooldown = 0.125f;
@@ -42,18 +49,31 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
+
     {
          //Aiming Rotation code -------------------
-        screenPosition = Input.mousePosition; //gets screen position of mouse
-        Ray ray = Camera.main.ScreenPointToRay(screenPosition);//Shoots a beam from camera to mouse point
-        if (Physics.Raycast(ray, out RaycastHit hitData)){
-            worldPosition = hitData.point;//world position is where we want to aim the player at.
-            var direction = (worldPosition - transform.position).normalized;//takes  target direction
-            var rotGoal = Quaternion.LookRotation(direction);// makes a quaternion for the direction
-            var lerped = Quaternion.Slerp(transform.rotation, rotGoal, turnspeed); // Smoothly Lerps towards it.
-            transform.rotation = lerped; // makes player aim at point. TODO- Change it so it moves smoothly.
-            //Debug.Log("Direction_"+direction+"<Rotating by");
-        } 
+        if (ScoreManager.BossTime)
+        {
+            aimWithMouse = false;
+        }
+        if (aimWithMouse)
+        {
+            screenPosition = Input.mousePosition; //gets screen position of mouse
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);//Shoots a beam from camera to mouse point
+            if (Physics.Raycast(ray, out RaycastHit hitData)){
+                worldPosition = hitData.point;//world position is where we want to aim the player at.
+                var direction = (worldPosition - transform.position).normalized;//takes  target direction
+                var rotGoal = Quaternion.LookRotation(direction);// makes a quaternion for the direction
+                var lerped = Quaternion.Slerp(transform.rotation, rotGoal, turnspeed); // Smoothly Lerps towards it.
+                transform.rotation = lerped; // makes player aim at point. TODO- Change it so it moves smoothly.
+                //Debug.Log("Direction_"+direction+"<Rotating by");
+            } 
+        }else
+        {
+            transform.rotation = new Quaternion(0, 0, 0,0);
+        }
+        
         //else{Debug.Log(screenPosition+"No position?");}//This runs when it doesn't aim at anything. Not needed right now as it keeps its current angle.
         
         // this will change based on game state later 
@@ -129,10 +149,56 @@ public class PlayerController : MonoBehaviour
             currentCooldown = 0.01f;
             Debug.Log("Firing type = " + firingType);
         }
-        IEnumerator ShootCooldown(){//Bullet cooldown will vary based on type of powerup that you have
+        
+    }
+    IEnumerator ShootCooldown(){//Bullet cooldown will vary based on type of powerup that you have
         yield return new WaitForSeconds(currentCooldown);
         canFire = true;
     }
+    private void OnTriggerEnter(Collider other){//upon picking up powerup, change firing type, cooldown, and bullet spread
+        if (other.gameObject.CompareTag("Powerup")){//
+            switch (other.GetComponent<PowerupMovement>().powerupNum)
+            {
+                case 4:
+                firingType = "Burst";
+                currentCooldown = 0.3f;
+                bulletPrefab.GetComponent<Bullet>().bulletSpread = 10f;
+                StartCoroutine("PowerupCoolDown");
+                break;
+                case 5:
+                firingType = "Burst";
+                currentCooldown = 0.3f;
+                bulletPrefab.GetComponent<Bullet>().bulletSpread = 20f;
+                StartCoroutine("PowerupCoolDown");
 
+                break;
+                case 6:
+                firingType = "Super-Rapid";
+                currentCooldown = 0.01f;
+                bulletPrefab.GetComponent<Bullet>().bulletSpread = 1f;
+                StartCoroutine("PowerupCoolDown");
+
+                break;
+            }
+            Destroy(other.gameObject);
+            //TODO - add visual indicator of damage being taken
+            
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            hp -= 2;
+            Destroy(other.gameObject);
+            hpText.text = "HP: " + hp;
+            explosionParticle.Play();
+
+        }
     }
+    IEnumerator PowerupCoolDown(){
+        yield return new WaitForSeconds(8);
+        currentCooldown = 0.125f;
+        firingType = "Rapid";
+        bulletPrefab.GetComponent<Bullet>().bulletSpread = 5f;
+    }
+
 }

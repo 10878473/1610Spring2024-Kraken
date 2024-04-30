@@ -8,12 +8,14 @@ public class BasicEnemy : MonoBehaviour
     //
     //This script will be split into multiple components once i figure out what kind of scripts can be shared
     //
-    private int hp = 5;
+    public int hp;
     private int speed;
     private GameObject player;
+    private ScoreManager ScoreManager;
     // Start is called before the first frame update
     void Start()
     {
+        ScoreManager = GameObject.Find("ManagersGoHere").GetComponent<ScoreManager>();
         player = GameObject.Find("PlayerController");
         speed = Random.Range(5,20);
         Debug.Log(gameObject.name + " speed is " + speed);
@@ -27,6 +29,7 @@ public class BasicEnemy : MonoBehaviour
         if (hp <= 0)
         {
             Destroy(gameObject);
+            ScoreManager.increaseScore(4);
             //TODO - Explosion?
         }
     }

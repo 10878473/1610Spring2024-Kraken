@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7067158407205022435}
   - component: {fileID: 7445401569933560062}
+  - component: {fileID: 3972085698255866846}
+  - component: {fileID: 5819141336061658876}
+  - component: {fileID: 308177788172752714}
   m_Layer: 0
   m_Name: Spiker_Enemy Parent
   m_TagString: Untagged
@@ -45,7 +48,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e81710ffa3bcfb439b5b2ed63ffae97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cone: {fileID: 8909779420479414549, guid: 76583b0603db17d4e99a1378895ab152, type: 3}
+  cone: {fileID: 3781493142390851249, guid: c2427bdfa910bc54783f5b6b8bd1f7ea, type: 3}
+  explosion: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+--- !u!65 &3972085698255866846
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386594511056076970}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.732164, y: 8.14972, z: 11.986682}
+  m_Center: {x: 0.5669558, y: -0.8484516, z: 0.68990374}
+--- !u!54 &5819141336061658876
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386594511056076970}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &308177788172752714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386594511056076970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e18dc3c10fd784f9e93e61471df76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreManager: {fileID: 0}
+  explosion: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
 --- !u!1 &4084379174816330163
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,34 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SpikerEnemy : MonoBehaviour
 {
     //
     //This script will be split into multiple components once i figure out what kind of scripts can be shared
     //
-    private int hp = 5;
+    private int hp = 10;
     private int speed;
     private GameObject player;
+    private ScoreManager ScoreManager;
+
     private int targetDist;
     private bool canFire;
     public GameObject cone;
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
+        ScoreManager = GameObject.Find("ManagersGoHere").GetComponent<ScoreManager>();
         targetDist = Random.Range(20,50 );
         player = GameObject.Find("PlayerController");
         speed = Random.Range(15,30);
         Debug.Log(gameObject.name + " speed is " + speed);
         canFire = true;
     } 
-
+    void Awake(){
+        transform.Rotate(0,180,0);
+    }
     // Update is called once per frame
     void Update()
     {
         if (hp <= 0)
         {
-            
+            ScoreManager.increaseScore(4);
+            Instantiate(explosion, transform.position, explosion.transform.rotation);
             Destroy(gameObject);
             //TODO - Explosion?
         }
@@ -40,9 +48,11 @@ public class SpikerEnemy : MonoBehaviour
         } else
         {
 
-            //Rotate towards player
             
             
+            
+            //rotate towards plaeer
+            transform.LookAt(player.transform);
             if (canFire)
             {
                 canFire = false;
@@ -66,7 +76,7 @@ public class SpikerEnemy : MonoBehaviour
 
     }
     private void firecones(){
-        Instantiate(cone,transform.position, transform.rotation * Random.rotation);
+        Instantiate(cone,transform.position, transform.rotation);
     }
     
     private IEnumerator cooldown(){
